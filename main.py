@@ -31,7 +31,7 @@ async def analyze_input(text):
     translator = gtrans.Translator()
 
     blob = TextBlob(text)
-    print(translator.translate(text=blob.raw, dest='en'))
+    print(translator.translate(text=blob.raw, dest='de'))
 
 
 # === MAIN PROGRAM ===
