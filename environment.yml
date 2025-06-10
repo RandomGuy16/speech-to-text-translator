@@ -121,7 +121,6 @@ dependencies:
   - defaults/linux-64::requests==2.32.3=py311h06a4308_1
   - conda-forge/noarch::sympy==1.14.0=pyh2585a3b_105
   - defaults/linux-64::textblob==0.18.0.post0=py311h92b7b1e_1
-  - conda-forge/noarch::googletrans==2.4.0=py_1001
   - conda-forge/linux-64::libblas==3.9.0=31_hfdb39a5_mkl
   - defaults/linux-64::pyopenssl==25.0.0=py311h06a4308_0
   - conda-forge/noarch::speechrecognition==3.14.3=pyhd8ed1ab_0
@@ -136,4 +135,7 @@ dependencies:
   - conda-forge/linux-64::pytorch==2.7.0=cpu_mkl_py311_he84fd7d_100
   - conda-forge/noarch::google-cloud-speech==2.32.0=pyhd8ed1ab_0
   - conda-forge/linux-64::torchaudio==2.7.1=cpu_py311h43b4644_1
+  - pip:
+    - textblob
+    - googletrans=3.1.0a0
 prefix: /home/aroon/miniconda3/envs/speech-text-translator
