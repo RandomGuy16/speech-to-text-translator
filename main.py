@@ -8,7 +8,7 @@ def transcribe_speech():
     recognizer = sr.Recognizer()
     mic = sr.Microphone()
 
-    print("🎤 Habla ahora...")
+    print("Habla ahora...")
 
     with mic as source:
         recognizer.adjust_for_ambient_noise(source)
