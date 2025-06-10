@@ -1,6 +1,7 @@
 import speech_recognition as sr
 from textblob import TextBlob
 import googletrans as gtrans
+import asyncio
 
 # recognizes voice
 def transcribe_speech():
@@ -11,7 +12,7 @@ def transcribe_speech():
 
     with mic as source:
         recognizer.adjust_for_ambient_noise(source)
-        audio = recognizer.listen(source, timeout=10)
+        audio = recognizer.listen(source)
     print("Listo")
 
     try:
@@ -26,33 +27,19 @@ def transcribe_speech():
         return None
 
 
-async def translate_text(translator, target):
-    return await translator.translate(text=target.raw, dest='de')
-
-
-async def analyze_feeling(text):
+async def analyze_input(text):
     translator = gtrans.Translator()
 
     blob = TextBlob(text)
-    print(await translate_text(translator, blob.raw))
-    sentiment = blob.sentiment.polarity
+    print(translator.translate(text=blob.raw, dest='en'))
 
-    if sentiment > 0.1:
-        estado = "Positivo 😀"
-    elif sentiment < -0.1:
-        estado = "Negativo 😠"
-    else:
-        estado = "Neutral 😐"
-
-    print(f"\n📊 Sentimiento: {estado} (polarity={sentiment:.2f})")
 
 # === MAIN PROGRAM ===
-def main():
+async def main():
     text = transcribe_speech()
     if text:
-        analyze_feeling(text)
+        await analyze_input(text)
 
 
 if __name__ == '__main__':
-    main()
-
+    asyncio.run(main())
