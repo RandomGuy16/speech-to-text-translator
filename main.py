@@ -18,9 +18,6 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-# load the whisper model at startup
-model = whisper.load_model("base")
-
 
 def translate_text(text, target_language='de'):
     translator = gtrans.Translator()
@@ -35,6 +32,9 @@ def translate_text(text, target_language='de'):
 
     return translated.text
 
+
+# load the whisper model at startup
+model = whisper.load_model("base")
 
 @app.post("/translate/audio")
 async def transcribe_audio(file: UploadFile = File(...), target: str='en'):
