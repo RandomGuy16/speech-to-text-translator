@@ -13,9 +13,10 @@ import whisper
 
 model = whisper.load_model("base")
 #result = model.transcribe(audio="grabacion.wav")
-result2 = model.transcribe(audio="whatsaudio1.wav")
-result3 = model.transcribe(audio="whatsaudio2.wav")
-#print(f'result: {result["text"]}')
+result1 = model.transcribe(audio="./audio/whatsaudio1.wav")
+result2 = model.transcribe(audio="./audio/whatsaudio2.wav")
+result3 = model.transcribe(audio="./audio/whatsaudio2.webm")
+print(f'result1: {result1["text"]}')
 print(f'result2: {result2["text"]}')
 print(f'result3: {result3["text"]}')
 

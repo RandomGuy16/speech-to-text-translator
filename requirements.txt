@@ -1,0 +1,6 @@
+fastapi
+uvicorn[standard]
+whisper
+googletrans==4.0.0-rc1
+httpcore<0.16.0
+pydantic

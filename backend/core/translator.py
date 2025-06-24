@@ -27,14 +27,14 @@ def transcribe_speech():
         return None
 
 
-async def analyze_input(text):
+async def analyze_input(text, target):
     translator = gtrans.Translator()
 
     blob = TextBlob(text)
-    print(translator.translate(text=blob.raw, dest='de'))
+    print(translator.translate(text=blob.raw, dest=target))
 
 
-# === MAIN PROGRAM ===
+# main course of the program
 async def main():
     text = transcribe_speech()
     if text:
